@@ -1,7 +1,6 @@
-
 /* ============================
   Bootstrap 
-============================ */ 
+============================ */
 
 /* import bootstrap all */
 
@@ -13,24 +12,54 @@
 
 /* ============================
   Bootstrap Custom
-============================ */ 
+============================ */
 
 // REMOVE if you don't need it!
 
 // Option B: Include parts of Bootstrap
 
 // Required
-
-// @import "../node_modules/bootstrap/scss/functions";
-// @import "../node_modules/bootstrap/scss/variables";
-// @import "../node_modules/bootstrap/scss/mixins";
+/*
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+*/
 
 // Optional
+/*
 
-// @import "../node_modules/bootstrap/scss/reboot";
-// @import "../node_modules/bootstrap/scss/type";
-// @import "../node_modules/bootstrap/scss/images";
-// @import "../node_modules/bootstrap/scss/code";
-// @import "../node_modules/bootstrap/scss/grid";
+@import "node_modules/bootstrap/scss/grid";
+//reboot
+@import "node_modules/bootstrap/scss/reboot";
+// typography
+@import "node_modules/bootstrap/scss/type";
 
-// ADD IT HERE ... 
+// buttons
+@import "node_modules/bootstrap/scss/buttons";
+// forms 
+@import "node_modules/bootstrap/scss/forms";
+
+@import "node_modules/bootstrap/scss/input-group";
+
+
+@import "node_modules/bootstrap/scss/button-group";
+
+// needed to navbar
+@import "node_modules/bootstrap/scss/transitions";
+//nav with burger
+@import "node_modules/bootstrap/scss/navbar";
+// navigation options
+@import "node_modules/bootstrap/scss/nav";
+
+
+// dropdown elements
+@import "node_modules/bootstrap/scss/dropdown";
+
+// utilities
+@import "node_modules/bootstrap/scss/utilities";
+
+//
+@import "node_modules/bootstrap/scss/media";
+@import "node_modules/bootstrap/scss/images";
+
+*/
