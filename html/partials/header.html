@@ -1,42 +1,39 @@
 <!-- header -->
 <header class="color-lighten">
+        
         <!-- Top Header -->
         <div class="top-header-wrap content-area mx-auto">
                 <div class="top-header p-2">
-                        <div class="row no-gutters">
+                        <div class="row no-gutters ">
                                 <!-- Logo -->
                                 <div class="col text-white company-name d-none d-lg-block">
-                                        <a href="./" class="text-reset text-decoration-none"><i
+                                       <a href="./" class="text-reset text-decoration-none"><i
                                                         class="logo mt-auto mb-auto"></i>upela</a>
                                 </div>
                                 <!-- Social Links -->
                                 <div class="col col-lg-auto social-wrap d-none d-md-block">
-                                        {{> social}}
+                                       <!--  {{> social}} -->
                                 </div>
                                 <!-- Nav Social -->
-                                <div class="col col-lg-auto active-search ml-2">
+                                <div class="col col-lg-auto active-search ml-2 d-flex flex-row">
                                         <div class="float-left  d-sm-block d-md-none">
-                                                {{> navsocial}}
+                                                 {{> navsocial}} 
                                         </div>
                                         
                                         <!-- form Search -->
-                                        <form class="form-inline row no-gutters">
-
-                                                <input class="form-control col-9 ml-2" type="search" placeholder="Search" aria-label="Search">
-                                                <!--
-                                                        <input class="col-2 text-color-white fas fa-search" value="#f002" type="submit" aria-label="Submit">
-                                                 -->
-                                                 <!--
-                                                         <input class="col-2 text-color-white" type="submit" aria-label="Submit">
-                                                  -->
-                                               
+                                        <div class=" float-end col-10">
+                                                <form class=" d-flex flex-row float-end p-2">
                                                 
+                                                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                                                     
+                                                        <button class="btn" type="submit">
+                                                                <i class="fas fa-search text-color-white"></i>
+                                                        </button>
                                                         
-                                                <button class="btn col-2" type="submit">
-                                                        <i class="fas fa-search text-color-white"></i>
-                                                </button>
-                                                
-                                        </form>
+                                                </form>
+                                        </div>
+                                 
+                                
                                 </div>
                         </div>
                 </div>
