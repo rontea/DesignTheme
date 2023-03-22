@@ -28,7 +28,9 @@ $max-width-font: 1200px;
   // strip unit
   @function strip-unit($number) {
     @if type-of($number) == "number" and not unitless($number) {
-      @return calc($number / calc($number * 0 + 1));
+      
+      
+        //@return calc($number /  ($number * 0  + 1) );
     }
   
     @return $number;

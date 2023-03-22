@@ -51,11 +51,11 @@ var gulp = require("gulp"),
     // panini
     panini = require('panini'),
     // clean
-    rimraf = require('rimraf'),
+ 
     //gulp-html
     validator = require('gulp-html');
 
-
+    const rimraf = require('rimraf');
 // main directory
 var main = "./";
 /*
@@ -88,8 +88,11 @@ gulp.task('hello', function() {
 });
 
 // Erases the dist folder contents
-gulp.task('clean', function(cb) {
-  rimraf('./build/*', cb);
+gulp.task('clean', function(tmp) {
+  rimraf('./build/', [tmp]);
+  console.log('========================');
+  console.log("successfully deleted");
+  console.log('========================');
 });
 
 /*

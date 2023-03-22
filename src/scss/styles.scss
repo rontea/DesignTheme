@@ -78,7 +78,7 @@ $dropdown-item-padding-x: 5px;
 $btn-link-color: $p-color-white;
 $btn-link-hover-color: $p-color-white;
 // @import "google/google_font";
-//@import "bootstrap/bootstrap";
+@import "bootstrap/bootstrap";
 
 /* Background list of color */
 
@@ -153,6 +153,9 @@ $news-tab-title-color-sub: $p-color-1;
 */
 
 $content-area: 1500px; 
+
+
+
 
 // @import "bulma/bulma";
 @import "fontawesome/fontawesome";
