@@ -12,7 +12,7 @@
  *  - gulp-environments     
  *  - gulp-uglify
  *  - panini
- *  - rimraf
+ *  - fs-extra
  *  - gulp-html 
  * 
  *    This is primary uses for bootstrap design for front-end
@@ -30,32 +30,33 @@
  * 
  *  - gulp-sass no longer contain sass install $npm install -g sass and $npm --save-dev sass
  */
+// gulp
+const gulp = require("gulp");
+// gulp-sass require sass
+const sass = require("gulp-sass")(require('sass'));
+// gulp-postcss
+const postcss = require("gulp-postcss");
+//autoprefixer
+const autoprefixer = require("autoprefixer");
+//cssnano
+const cssnano = require("cssnano");
+// gulp-sourcemaps
+const sourcemaps = require("gulp-sourcemaps");
+//browser-sync
+const browserSync = require("browser-sync").create();
+// gulp-enviroments
+const environments = require('gulp-environments');
+// gulp-uglify use in js
+const uglify = require('gulp-uglify');
+// panini
+const panini = require('panini');
+//clean
+const fse = require('fs-extra');
+//gulp-html
+const validator = require('gulp-html');
 
-var gulp = require("gulp"),
-    // gulp-sass require sass
-    sass = require("gulp-sass")(require('sass')),
-    // gulp-postcss
-    postcss = require("gulp-postcss"),
-    //autoprefixer
-    autoprefixer = require("autoprefixer"),
-    //cssnano
-    cssnano = require("cssnano"),
-    // gulp-sourcemaps
-    sourcemaps = require("gulp-sourcemaps"),
-    //browser-sync
-    browserSync = require("browser-sync").create(),
-    // gulp-enviroments
-    environments = require('gulp-environments'),
-    // gulp-uglify use in js
-    uglify = require('gulp-uglify'),
-    // panini
-    panini = require('panini'),
-    // clean
- 
-    //gulp-html
-    validator = require('gulp-html');
 
-    const rimraf = require('rimraf');
+
 // main directory
 var main = "./";
 /*
@@ -87,13 +88,12 @@ gulp.task('hello', function() {
   console.log('========================');
 });
 
-// Erases the dist folder contents
-gulp.task('clean', function(tmp) {
-  rimraf('./build/', [tmp]);
-  console.log('========================');
-  console.log("successfully deleted");
-  console.log('========================');
+
+gulp.task('clean', function () {
+  return fse.remove('./build');
+
 });
+
 
 /*
 Setting enviroments (has an issue)
@@ -174,6 +174,11 @@ gulp.task ('compile-bootstrapjs', function () {
     .pipe(gulp.dest(jsdes))
     .pipe(browserSync.stream());
 });
+/*
+compile bootstrap-icon
+*/
+
+
 
 /* 
 compile js prism
@@ -190,13 +195,14 @@ gulp.task ('compile-prismjs', function () {
     .pipe(browserSync.stream());
 });
 
+
 /* Compile Bootstrap for Optinal Javascript 
 
-jQuery first, then Popper.js, then Bootstrap JS 
+Removed Jquery - Bootstrap 5 only uses Popper.js, then Bootstrap JS 
 
 */
 
-gulp.task ('bootstrap-optionaljs', gulp.parallel('compile-jquery','compile-popper','compile-bootstrapjs'));
+gulp.task ('bootstrap-optionaljs', gulp.parallel('compile-popper','compile-bootstrapjs'));
 
 /*
 JS to complile
@@ -235,9 +241,9 @@ var webfont = "node_modules/@fortawesome/fontawesome-free/webfonts/**/*";
 */
 gulp.task ('addon-fontawesome-font', function () {
   return gulp
-    // 
+    // get the webfont
     .src([webfont])
-    // 
+    // need the webfont
     .pipe(gulp.dest("build/webfonts"));
     
 });
@@ -446,7 +452,7 @@ gulp.task('watch', function () {
 // start the process default
 gulp.task('default', gulp.parallel('hello','js-compile','bootstrap-optionaljs','compile-bootstrap','compile-scss','compile-html','compile-img','watch'));
 
-/* Compile without the bootstrap, to use bootstrap in includes under scss */
+/* Compile without the bootstrap, to use bootstrap in includes under scss this will only have the style containing all */
 gulp.task('compile-nobs', gulp.parallel('hello','js-compile','bootstrap-optionaljs', 'compile-scss','compile-html','compile-img','watch'));
 
 /* Compile Bs no additional JS */
